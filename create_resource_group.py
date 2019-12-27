@@ -8,4 +8,4 @@ client = get_client_from_auth_file(ResourceManagementClient)
 
 rg_params = {'location':'eastus'}
 
-client.resource_groups.create_or_update('delete-me', rg_params)
+client.resource_groups.create_or_update('test-group', rg_params)
