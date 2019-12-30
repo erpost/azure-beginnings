@@ -7,13 +7,5 @@ os.environ['AZURE_AUTH_LOCATION'] = os.path.expanduser('~/.azure/sp_keys/readonl
 client = get_client_from_auth_file(ResourceManagementClient)
 
 for rg in client.resource_groups.list():
-    # print(rg)
-    print('Name: ', rg.name)
-    print('Type: ', rg.type)
-    print('Location: ', rg.location)
-    print('Managed By: ', rg.managed_by)
-    print('ID: ', rg.id)
-    print('Tags: ', rg.tags)
-    print('Properties: ', rg.properties)
-    print('Additional Properties: ', rg.additional_properties)
-    print('\n')
+    for item in client.resources.list_by_resource_group(rg.name):
+        print(rg.name, ':', item)
